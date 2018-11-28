@@ -1,5 +1,31 @@
+<?php
+
+//Si se utilizan comillas dobles el sistema va intentar mostrar también el valor de las variables.
+$lastName='Bernal Muñoz';
+//$name='Edison Johan';
+//var_dump($name); //Ver el contenido del dato. string(12) "Edison Johan"
+//HEARDOC ->
+
+//HEREDOC Similar a comillas sobles,
+$name=<<<EOT
+Edison
+Johan $lastName
+EOT;
+// O
+
+$name=<<<"EOT"
+Edison
+Johan
+EOT;
+
+//NOWDOC Similar a comillas sencillas
+$name=<<<'EOT'
+Edison
+Johan $lastName
+EOT;
+?>
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <!-- Required meta tags -->
@@ -21,7 +47,7 @@
         <img id="profile-picture" src="https://ui-avatars.com/api/?name=John+Doe&size=255" alt="">
       </div>
       <div class="col">
-        <h1>Hector Benitez</h1>
+        <h1><?php echo $name.' '.$lastName; ?></h1>
         <h2>PHP Developer</h2>
         <ul>
           <li>Mail: hector@mail.com</li>
