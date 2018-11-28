@@ -2,27 +2,18 @@
 
 //Si se utilizan comillas dobles el sistema va intentar mostrar también el valor de las variables.
 $lastName='Bernal Muñoz';
-//$name='Edison Johan';
-//var_dump($name); //Ver el contenido del dato. string(12) "Edison Johan"
-//HEARDOC ->
-
-//HEREDOC Similar a comillas sobles,
-$name=<<<EOT
-Edison
-Johan $lastName
-EOT;
-// O
-
-$name=<<<"EOT"
-Edison
-Johan
-EOT;
-
-//NOWDOC Similar a comillas sencillas
-$name=<<<'EOT'
-Edison
-Johan $lastName
-EOT;
+$name='Edison Johan';
+$jobs=[
+  [
+    'title'=>'PHP Developer'
+  ],
+  [
+    'title'=>'JS Developer'
+  ],
+  [
+    'title'=>'HTML AND CSS'
+  ]
+]
 ?>
 <!doctype html>
 <html lang="es">
@@ -72,7 +63,7 @@ EOT;
           <h3 class="border-bottom-gray" >Work Experience</h3>
           <ul>
             <li class="work-position">
-              <h5>PHP Developer</h5>
+              <h5><?php echo $jobs[0]['title']; ?></h5>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum itaque obcaecati nihil.</p>
               <strong>Achievements:</strong>
               <ul>
@@ -82,7 +73,7 @@ EOT;
               </ul>
             </li>
             <li class="work-position">
-                <h5>PHP Developer</h5>
+                <h5><?php echo $jobs[1]['title']; ?></h5>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum itaque obcaecati nihil.</p>
                 <strong>Achievements:</strong>
                 <ul>
@@ -92,7 +83,7 @@ EOT;
                 </ul>
               </li>
               <li class="work-position">
-                  <h5>PHP Developer</h5>
+                  <h5><?php echo $jobs[2]['title']; ?></h5>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum itaque obcaecati nihil.</p>
                   <strong>Achievements:</strong>
                   <ul>
