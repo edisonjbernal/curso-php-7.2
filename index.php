@@ -6,18 +6,35 @@ $name='Edison Johan';
 $jobs=[
   [
     'title'=>'PHP Developer',
-    'description'=>'Algunos proyectos de esta área PHP'
+    'description'=>'Algunos proyectos de esta área PHP',
+    'visible'=>true,
+    'months'=>6
   ],
   [
     'title'=>'JS Developer',
-    'description'=>'Algunos proyectos de esta área JS'
+    'description'=>'Algunos proyectos de esta área JS',
+    'visible'=>true,
+    'months'=>3
   ],
   [
     'title'=>'HTML AND CSS',
-    'description'=>'Algunos proyectos de esta área HTML CSS'
+    'description'=>'Algunos proyectos de esta área HTML CSS',
+    'visible'=>true,
+    'months'=>4
+  ],
+  [
+    'title'=>'Frontend Developer',
+    'description'=>'Algunos proyectos de esta área HTML CSS',
+    'visible'=>false,
+    'months'=>2
+  ],
+  [
+    'title'=>'.Net Developer',
+    'description'=>'Algunos proyectos de esta área HTML CSS',
+    'visible'=>true,
+    'months'=>6
   ]
 ];
-$var1= 1;
 ?>
 <!doctype html>
 <html lang="es">
@@ -67,14 +84,28 @@ $var1= 1;
           <h3 class="border-bottom-gray" >Work Experience</h3>
           <ul>
             <?php
-
+              $limitMonths=12;
+              $totalMonths=0;
               $jobsNumber=count($jobs);
 
-              for($idx=0;$idx < $jobsNumber;$idx++){ ?>
+              for($idx=0;$idx < $jobsNumber;$idx++){
+
+                $totalMonths += $jobs[$idx]['months'];
+
+                if($totalMonths > $limitMonths){
+                  break;
+                }
+
+                if(!$jobs[$idx]['visible']){
+                  continue;
+                }
+
+                ?>
 
                 <li class="work-position">
                   <h5><?php echo $jobs[$idx]['title']; ?></h5>
                   <p><?php echo $jobs[$idx]['description']; ?></p>
+                  <p>Hace <?php echo $totalMonths; ?> meses</p>
                   <strong>Achievements:</strong>
                   <ul>
                     <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
