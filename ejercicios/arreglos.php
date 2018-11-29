@@ -58,12 +58,12 @@ echo "<h3>Ejercicio 3</h3>";
 $ejercicio3 = [23, 54, 32, 67, 34, 78, 98, 56, 21, 34, 57, 92, 12, 5, 61];
 rsort($ejercicio3); // Acomoda el arrego de mayor a menor
 echo "<br>";
-echo "Los tres valores mas altos son: ";
+echo "Los tres valores más altos son: ";
 for ($i=0; $i < 3; $i++) {
 	echo "$ejercicio3[$i] ";
 }
 echo "<br>";
-echo "Los tres valores mas bajos son: ";
+echo "Los tres valores más bajos son: ";
 //var_dump($ejercicio3);
 $numeros=count($ejercicio3);
 for ($i=$numeros; $i >= ($numeros - 3); $i--) {
