@@ -61,13 +61,13 @@ $name='Edison Johan'; ?>
 
               for($idx=0;$idx < $jobsNumber;$idx++){
 
-                $totalMonths += $jobs[$idx]['months'];
+                $totalMonths += $jobs[$idx]->months;
 
                 if($totalMonths > $limitMonths){
                   break;
                 }
 
-                if(!$jobs[$idx]['visible']){
+                if(!$jobs[$idx]->visible){
                   continue;
                 }
                   printJob($jobs[$idx],$totalMonths);
