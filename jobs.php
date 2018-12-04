@@ -4,8 +4,14 @@
 class Job {
   private $title;
   public $description;
-  public $visible;
+  public $visible = true;
   public $months;
+
+
+public function __construct($title,$description){
+    $this->setTitle($title);
+    $this->description = $description;
+}
 
   public function setTitle($t){
     if(!$t){
@@ -44,22 +50,13 @@ class Job {
 
 }
 
-$job1 = new Job();
-$job1->setTitle('PHP Developer');
-$job1->description='Algunos proyectos de esta área PHP';
-$job1->visible=true;
+$job1 = new Job('PHP Developer','Algunos proyectos de esta área PHP');
 $job1->months=25;
 
-$job2 = new Job();
-$job2->setTitle('JS Developer');
-$job2->description='Algunos proyectos de esta área JS';
-$job2->visible=true;
+$job2 = new Job('JS Developer','Algunos proyectos de esta área JS');
 $job2->months=1;
 
-$job3 = new Job();
-$job3->setTitle('');
-$job3->description='Algunos proyectos de esta área CSS y HTML';
-$job3->visible=true;
+$job3 = new Job('','Algunos proyectos de esta área CSS y HTML');
 $job3->months=4;
 
 $jobs=[
