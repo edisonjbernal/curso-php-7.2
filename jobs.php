@@ -8,12 +8,40 @@ class Job {
   public $months;
 
   public function setTitle($t){
-     $this->title = $t;
+    if(!$t){
+      $this->title = 'N/A';
+    }
+    else{
+      $this->title = $t;
+    }
   }
 
   public function getTitle(){
     return $this->title;
   }
+
+  function getDurationAsString(){
+    $years= floor($this->months / 12);
+    $extraMonths=$this->months % 12;
+    $totalTime='';
+  if($years){
+    $totalTime=$years.' año';
+    if($years > 1){
+      $totalTime.='s';
+    }
+  }
+  if($extraMonths){
+    if($years){
+      $totalTime.=' y ';
+    }
+    $totalTime.=$extraMonths.' mes';
+    if($extraMonths > 1){
+      $totalTime.='es';
+    }
+  }
+    return $totalTime.'.';
+  }
+
 }
 
 $job1 = new Job();
@@ -28,9 +56,16 @@ $job2->description='Algunos proyectos de esta área JS';
 $job2->visible=true;
 $job2->months=1;
 
+$job3 = new Job();
+$job3->setTitle('');
+$job3->description='Algunos proyectos de esta área CSS y HTML';
+$job3->visible=true;
+$job3->months=4;
+
 $jobs=[
   $job1,
-  $job2
+  $job2,
+  $job3
 /*  [
     'title'=>'PHP Developer',
     'description'=>'Algunos proyectos de esta área PHP',
@@ -63,27 +98,7 @@ $jobs=[
   ]*/
 ];
 
-function getDuration($months){
-  $years= floor($months / 12);
-  $extraMonths=$months % 12;
-  $totalTime='';
-if($years){
-  $totalTime=$years.' año';
-  if($years > 1){
-    $totalTime.='s';
-  }
-}
-if($extraMonths){
-  if($years){
-    $totalTime.=' y ';
-  }
-  $totalTime.=$extraMonths.' mes';
-  if($extraMonths > 1){
-    $totalTime.='es';
-  }
-}
-  return $totalTime.'.';
-}
+
 
 
 function printJob($job,$totalMonths){  ?>
@@ -92,7 +107,7 @@ function printJob($job,$totalMonths){  ?>
     <h5><?php echo $job->getTitle(); ?></h5>
     <p><?php echo $job->description; ?></p>
     <p>Hace <?php echo $totalMonths; ?> meses</p>
-    <p>Tiempo de trabajo: <?php echo getDuration($job->months); ?></p>
+    <p>Tiempo de trabajo: <?php echo $job->getDurationAsString(); ?></p>
     <strong>Achievements:</strong>
     <ul>
       <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
