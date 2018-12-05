@@ -1,9 +1,7 @@
 <?php
-
 require_once 'BaseElement.php';
 
 class Job extends BaseElement{
-
 
   public function __construct($title,$description){
     $newTitle='Trabajo: '.$title;
@@ -31,5 +29,6 @@ class Job extends BaseElement{
   }
     return $totalTime.'.';
   }
+
 
 }

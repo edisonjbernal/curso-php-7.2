@@ -1,8 +1,8 @@
 <?php
 
 require 'app/Models/Job.php';
-
 require 'app/Models/Project.php';
+require_once 'app/Models/Printable.php';
 
 
 $job1 = new Job('PHP Developer','Algunos proyectos de esta área PHP');
@@ -30,11 +30,11 @@ $projects=[
 
 
 
-function printElement($job){  ?>
+function printElement(Printable $job){  ?>
 
   <li class="work-position">
     <h5><?php echo $job->getTitle(); ?></h5>
-    <p><?php echo $job->description; ?></p>
+    <p><?php echo $job->getDescription(); ?></p>
     <p>Tiempo de trabajo: <?php echo $job->getDurationAsString(); ?></p>
     <strong>Achievements:</strong>
     <ul>
