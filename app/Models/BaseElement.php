@@ -1,8 +1,6 @@
 <?php
 namespace App\Models;
 
-require_once 'Printable.php';
-
 class BaseElement implements Printable{
   //Private: Solo esta clase
   //Public: Desde cualquier lado puede ser accedido
