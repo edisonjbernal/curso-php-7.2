@@ -70,7 +70,7 @@ $name='Edison Johan'; ?>
                 if(!$jobs[$idx]->visible){
                   continue;
                 }
-                  printJob($jobs[$idx],$totalMonths);
+                  printElement($jobs[$idx]);
 
                 } ?>
 
@@ -78,6 +78,20 @@ $name='Edison Johan'; ?>
         </div>
         <div>
             <h3 class="border-bottom-gray">Projects</h3>
+            <ul>
+              <?php
+
+                $projectsNumber=count($projects);
+
+                for($idx=0;$idx < $projectsNumber;$idx++){
+
+                    printElement($projects[$idx]);
+
+                  } ?>
+
+            </ul>
+
+
             <div class="project">
                 <h5>Project X</h5>
                 <div class="row">
