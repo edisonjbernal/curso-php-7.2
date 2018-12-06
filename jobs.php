@@ -3,8 +3,6 @@
 
 require_once 'vendor/autoload.php';
 
-
-
 /*
 Antes de php 7
 use App\Models\Job;
