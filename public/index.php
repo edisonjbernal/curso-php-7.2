@@ -31,10 +31,20 @@ $capsule->setAsGlobal();
 $capsule->bootEloquent();
 
 
-$route=$_GET['route'] ?? '/';
+$request = Zend\Diactoros\ServerRequestFactory::fromGlobals(
+    $_SERVER,
+    $_GET,
+    $_POST,
+    $_COOKIE,
+    $_FILES
+);
+
+var_dump($request->getUri()->getPath());
+
+/*$route=$_GET['route'] ?? '/';
 if($route == '/'){
     require('../index.php');
 }
 elseif($route=='addJob'){
   require('../addJob.php');
-}
+}*/
