@@ -1,12 +1,3 @@
-<?php
-use App\Models\Job;
-//Si se utilizan comillas dobles el sistema va intentar mostrar también el valor de las variables.
-require_once('jobs.php');
-
-$lastName='Bernal Muñoz';
-$name='Edison Johan'; ?>
-
-
 <!doctype html>
 <html lang="es">
 
@@ -55,7 +46,6 @@ $name='Edison Johan'; ?>
           <h3 class="border-bottom-gray" >Work Experience</h3>
           <ul>
             <?php
-              $limitMonths=48;
               $totalMonths=0;
             $jobsNumber=count($jobs);
 
@@ -81,13 +71,13 @@ $name='Edison Johan'; ?>
             <ul>
               <?php
 
-              /*  $projectsNumber=count($projects);
+                $projectsNumber=count($projects);
 
                 for($idx=0;$idx < $projectsNumber;$idx++){
 
                     printElement($projects[$idx]);
 
-                  } */?>
+                  } ?>
 
             </ul>
 

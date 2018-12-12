@@ -5,7 +5,7 @@ class BaseElement implements Printable{
   //Private: Solo esta clase
   //Public: Desde cualquier lado puede ser accedido
   //Protected: Solo desde la clase y desde las clases hijas pueden ser accedidos
-  protected $title;
+  public $title;
   public $description;
   public $visible = true;
   public $months;

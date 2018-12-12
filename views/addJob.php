@@ -1,18 +1,3 @@
-<?php
-
-use App\Models\Job;
-
-if(!empty($_POST)){
-  $job = new Job();
-
-  $job->title = $_POST['title'];
-  $job->description = $_POST['description'];
-  $job->save();
-}
-
-
-
-?>
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">

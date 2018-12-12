@@ -47,11 +47,34 @@ $map->get('index', '/platzi/cursoPhp72/',
   'action'=>'indexAction'
 ]
 );
-$map->get('addJobs', '/platzi/cursoPhp72/jobs/add','../addJob.php');
+$map->get('addJobs', '/platzi/cursoPhp72/jobs/add',
+[
+  'controller'=>'App\Controllers\JobsController',
+  'action'=>'getAddJobAction'
+]
+);
 
 $matcher = $routerContainer->getMatcher(); //Compara el objeto Request con lo que tenemos en el mapa
 
 $route = $matcher->match($request);
+
+function printElement($job){  ?>
+
+  <li class="work-position">
+    <h5><?php echo $job->title; ?></h5>
+    <p><?php echo $job->description; ?></p>
+    <p>Tiempo de trabajo: <?php  echo $job->getDurationAsString(); ?></p>
+    <strong>Achievements:</strong>
+    <ul>
+      <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+      <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+      <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
+    </ul>
+  </li>
+
+<?php
+}
+
 
 
 if(!$route){
