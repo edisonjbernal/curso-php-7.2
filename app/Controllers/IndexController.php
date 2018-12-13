@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\{Job,Project};
 
-class IndexController{
+class IndexController extends BaseController{
 
   public function indexAction(){
 $jobs=Job::all();
@@ -19,11 +19,13 @@ var_dump($projects);
     //Si se utilizan comillas dobles el sistema va intentar mostrar también el valor de las variables.
 
 
-    $lastName='Bernal Muñoz';
-    $name='Edison Johan';
+    $name='Edison Johan Bernal Muñoz';
     $limitMonths=48;
 
-    include '../views/index.php';
+    return $this->renderHTML('index.twig',[
+      'name'=>$name,
+      'jobs'=>$jobs
+    ]);
   }
 
 }
