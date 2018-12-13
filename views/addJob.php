@@ -8,7 +8,7 @@
   </head>
   <body>
     <h1>Add Job</h1>
-<form class="" action="addJob.php" method="post">
+<form class="" action="/platzi/cursoPhp72/jobs/add" method="post">
   <label for="">Title:</label>
   <input type="text" name="title" value=""><br/>
   <label for="">Description:</label>

@@ -53,6 +53,12 @@ $map->get('addJobs', '/platzi/cursoPhp72/jobs/add',
   'action'=>'getAddJobAction'
 ]
 );
+$map->post('saveJobs', '/platzi/cursoPhp72/jobs/add',
+[
+  'controller'=>'App\Controllers\JobsController',
+  'action'=>'getAddJobAction'
+]
+);
 
 $matcher = $routerContainer->getMatcher(); //Compara el objeto Request con lo que tenemos en el mapa
 
@@ -86,7 +92,7 @@ else{
   $actionName=$handlerData['action'];
 
   $controller=new $controllerName;
-  $controller->$actionName();
+  $controller->$actionName($request);
 
   /*var_dump($route->handler);*/
 }
