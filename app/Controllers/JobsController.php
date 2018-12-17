@@ -31,11 +31,20 @@ class JobsController extends BaseController{
 
         try {
           $jobValidator->assert($postData);
-          $job = new Job();
+          /*$job = new Job();
           $job->title = $postData['title'];
           $job->description = $postData['description'];
-          $job->save();
-          
+          $job->save();*/
+
+
+          //Files upload
+          $files = $request->getUploadedFiles();
+          $logo = $files['logo'];
+          if($logo->getError() == UPLOAD_ERR_OK){
+            $fileName= $logo->getClientFileName();
+            $logo->moveTo('uploads/'.$fileName);
+          }
+
           $responseMessage = 'Saved';
         } catch (\Exception $e) {
           $responseMessage=$e->getMessage();
