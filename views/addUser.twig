@@ -1,0 +1,17 @@
+{% extends 'layout.twig' %}
+
+{% block content  %}
+<h1>Add User</h1>
+<div class="alert alert-primary" role="alert">
+  {{ responseMessage }}
+</div>
+  <form class="" action="/platzi/cursoPhp72/users/add" method="post" >
+  <label for="">Email:</label>
+  <input type="email" name="email" value=""><br/>
+  <label for="">Password:</label>
+  <input type="password" name="password" value=""><br/>
+  <!--https://diego.com.es/seguridad-en-la-subida-de-archivos-en-php-->
+
+  <button type="submit">Save</button>
+  </form>
+{% endblock %}

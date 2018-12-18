@@ -60,6 +60,34 @@ $map->post('saveJobs', '/platzi/cursoPhp72/jobs/add',
 ]
 );
 
+$map->get('addUsers', '/platzi/cursoPhp72/users/add',
+[
+  'controller'=>'App\Controllers\UsersController',
+  'action'=>'getAddUser'
+]
+);
+
+$map->post('saveUsers', '/platzi/cursoPhp72/users/add',
+[
+  'controller'=>'App\Controllers\UsersController',
+  'action'=>'postSaveUser'
+]
+);
+
+$map->get('loginForm', '/platzi/cursoPhp72/login',
+[
+  'controller'=>'App\Controllers\AuthController',
+  'action'=>'getLogin'
+]
+);
+
+$map->post('authLogin', '/platzi/cursoPhp72/auth',
+[
+  'controller'=>'App\Controllers\AuthController',
+  'action'=>'postLogin'
+]
+);
+
 $matcher = $routerContainer->getMatcher(); //Compara el objeto Request con lo que tenemos en el mapa
 
 $route = $matcher->match($request);
