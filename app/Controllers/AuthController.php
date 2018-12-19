@@ -3,6 +3,7 @@ namespace App\Controllers;
 
 use App\Models\User;
 use Respect\Validation\Validator as v;
+use Zend\Diactoros\Response\RedirectResponse;
 
 class AuthController extends BaseController{
 
@@ -23,14 +24,19 @@ class AuthController extends BaseController{
         if($user){
 
           if(password_verify($postData['password'],$user->password)){
-            echo 'Correct';
+            return new RedirectResponse('/platzi/cursoPhp72/admin');
           }else{
-            echo 'Wrong';
+            $responseMessage= 'Bad credentials';
           }
         }
         else{
-          echo 'NOFound';
+          $responseMessage= 'Bad credentials';
         }
+
+        return $this->renderHTML('login.twig',[
+          'responseMessage'=>$responseMessage
+        ]);
+
 
         /*$userValidator = v::key('email', v::stringType()->notEmpty());
 
