@@ -24,9 +24,12 @@ class AuthController extends BaseController{
         if($user){
 
           if(password_verify($postData['password'],$user->password)){
+            $_SESSION['userId'] = $user->id;
             return new RedirectResponse('/platzi/cursoPhp72/admin');
           }else{
+
             $responseMessage= 'Bad credentials';
+
           }
         }
         else{
@@ -37,24 +40,15 @@ class AuthController extends BaseController{
           'responseMessage'=>$responseMessage
         ]);
 
-
-        /*$userValidator = v::key('email', v::stringType()->notEmpty());
-
-                          try {
-                            $userValidator->assert($postData);
-                            $user = new User();
-                            $user->email = $postData['email'];
-                            $user->password = password_hash($postData['password'],PASSWORD_DEFAULT);
-                            $user->save();
-
-                            $responseMessage = 'Saved user '.$postData['email'];
-                          } catch (\Exception $e) {
-                            $responseMessage=$e->getMessage();
-                          }
-                          return $this->renderHTML('addUser.twig',[
-                            'responseMessage'=>$responseMessage
-                          ]);*/
       }
+
+
+
+  }
+
+  public function getLogout($request){
+    unset($_SESSION['userId']);
+    return new RedirectResponse('/platzi/cursoPhp72/login');
 
   }
 
