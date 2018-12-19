@@ -1,0 +1,18 @@
+{% extends 'layout.twig' %}
+
+{% block content  %}
+<h1>Add Job</h1>
+<div class="alert alert-primary" role="alert">
+  {{ responseMessage }}
+</div>
+  <form class="" action="/platzi/cursoPhp72/jobs/add" method="post" enctype="multipart/form-data">
+  <label for="">Title:</label>
+  <input type="text" name="title" value=""><br/>
+  <label for="">Description:</label>
+  <input type="text" name="description" value=""><br/>
+  <!--https://diego.com.es/seguridad-en-la-subida-de-archivos-en-php-->
+  <input type="file" name="logo" value="">
+
+  <button type="submit">Save</button>
+  </form>
+{% endblock %}
